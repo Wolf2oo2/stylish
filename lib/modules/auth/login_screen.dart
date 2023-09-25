@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/modules/auth/create_password_screen.dart';
-import 'package:stylish/modules/settings/profile_screen.dart';
+import 'package:stylish/modules/catogries/search_screen.dart';
 import 'package:stylish/widgets/app_text_field.dart';
 import 'package:stylish/widgets/custom_elevated_button.dart';
 
@@ -232,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                 ),
                 AppTextField(
-                  errorText: _errorEmailValue2,
+                  errorText:_errorEmailValue2,
                   keyboard: TextInputType.emailAddress,
                   controller: _emailTextEditingController2,
                   hint: 'Email Address',
@@ -271,10 +271,11 @@ class _LoginScreenState extends State<LoginScreen>
   }
 
   void performSignup() {
-    if (checkData()) {
+    if (checkData2()) {
       signup();
     }
   }
+
   void performLogin() {
     if (checkData()) {
       login();
@@ -283,22 +284,51 @@ class _LoginScreenState extends State<LoginScreen>
 
   bool checkData() {
     if (_emailTextEditingController.text.isNotEmpty &&
-        _passwordTextEditingController.text.isNotEmpty ||
+            _passwordTextEditingController.text.isNotEmpty) {
+      setStateErrorValue();
+      return true;
+    }
+    setStateErrorValue();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        dismissDirection: DismissDirection.horizontal,
+        margin:
+            const EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 10),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        backgroundColor: const Color(0xFFFF4343),
+        content: const Text(
+          'Enter Required Data',
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+    return false;
+  }bool checkData2() {
+    if (
         _emailTextEditingController2.text.isNotEmpty) {
       setStateErrorValue();
       return true;
     }
     setStateErrorValue();
 
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
         duration: const Duration(seconds: 3),
         dismissDirection: DismissDirection.horizontal,
         margin:
             const EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 10),
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: const Color(0xFFFF4343),
-        content: const Text('Enter Required Data')));
+        content: const Text(
+          'Enter Required Data',
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
     return false;
   }
 
@@ -306,15 +336,18 @@ class _LoginScreenState extends State<LoginScreen>
     setState(() {
       _errorEmailValue =
           _emailTextEditingController.text.isEmpty ? 'Enter Email' : null;
-      _errorEmailValue2 =
-          _emailTextEditingController2.text.isEmpty ? 'Enter Email' : null;
+      _errorEmailValue2=
+      _emailTextEditingController2.text.isEmpty ? 'Enter Email' : null;
+
       _errorPassWordValue =
           _passwordTextEditingController.text.isEmpty ? 'Enter Password' : null;
-    });
+    },);
   }
 
+
+
   void login() {
-    Navigator.of(context).pushNamed(ProfileScreen.screenRoute);
+    Navigator.of(context).pushNamed(SearchScreen.screenRoute);
   }
 
   void signup() {

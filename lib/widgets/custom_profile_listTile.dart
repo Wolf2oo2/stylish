@@ -28,13 +28,13 @@ class CustomProfileListTile extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadiusDirectional.circular(15),
-              color: Color(0xff2918F8).withOpacity(0.3),
+              color: const Color(0xff2918F8).withOpacity(0.3),
             ),
-            child: Icon(leading, color: Color(0xff2918F8)),
+            child: Icon(leading, color: const Color(0xff2918F8)),
           ),
           title: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color(0xFF090F24), fontWeight: FontWeight.bold, fontSize: 16),
           ),
           trailing: IconButton(
@@ -43,7 +43,7 @@ class CustomProfileListTile extends StatelessWidget {
             onPressed: onPress,
             icon: Icon(
               trailing,
-              color: Color(0xFF090F24),
+              color: const Color(0xFF090F24),
             ),
           )),
     );

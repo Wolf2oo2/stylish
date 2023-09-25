@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/modules/auth/create_password_screen.dart';
 import 'package:stylish/modules/auth/login_screen.dart';
+import 'package:stylish/modules/catogries/search_screen.dart';
 import 'package:stylish/modules/launch/on_boarding_screen.dart';
 import 'package:stylish/modules/launch/splash_screen.dart';
 import 'package:stylish/modules/settings/profile_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       '/login_screen':(context)=>  const LoginScreen(),
       CreatePasswordScreen.screenRoute:(context)=>  const CreatePasswordScreen(),
       ProfileScreen.screenRoute:(context)=>  const ProfileScreen(),
+      SearchScreen.screenRoute:(context)=>  const SearchScreen(),
 
     },
 

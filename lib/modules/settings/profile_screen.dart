@@ -27,14 +27,14 @@ class ProfileScreen extends StatelessWidget {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-              color: Color(0xff2918F8).withOpacity(0.8),
+              color: const Color(0xff2918F8).withOpacity(0.8),
               borderRadius: BorderRadius.circular(20),
             ),
             child: IconButton(
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
               onPressed: () {},
-              icon: Icon(Icons.arrow_back_ios_outlined),
+              icon: const Icon(Icons.arrow_back_ios_outlined),
             ),
           ),
         ),
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               child: IconButton(color: Colors.black,splashColor: Colors.transparent,highlightColor: Colors.transparent,
                 onPressed: () {},
-                icon: Icon(Icons.edit),
+                icon: const Icon(Icons.edit),
               ),
             ),
           )
