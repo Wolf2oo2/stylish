@@ -3,6 +3,7 @@ import 'package:stylish/modules/auth/create_password_screen.dart';
 import 'package:stylish/modules/auth/login_screen.dart';
 import 'package:stylish/modules/launch/on_boarding_screen.dart';
 import 'package:stylish/modules/launch/splash_screen.dart';
+import 'package:stylish/modules/settings/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       '/on_boarding_screen':(context)=>const OnBoardingScreen(),
       '/login_screen':(context)=>  const LoginScreen(),
       CreatePasswordScreen.screenRoute:(context)=>  const CreatePasswordScreen(),
+      ProfileScreen.screenRoute:(context)=>  const ProfileScreen(),
 
     },
 

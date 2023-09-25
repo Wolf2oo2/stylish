@@ -45,7 +45,7 @@ class _CreatePasswordState extends State<CreatePasswordScreen> {
             )),
         centerTitle: true,
         title: const Text(
-          'New Account',
+          'Create Password',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,

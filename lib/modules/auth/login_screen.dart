@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/modules/auth/create_password_screen.dart';
+import 'package:stylish/modules/settings/profile_screen.dart';
 import 'package:stylish/widgets/app_text_field.dart';
 import 'package:stylish/widgets/custom_elevated_button.dart';
 
@@ -282,7 +283,7 @@ class _LoginScreenState extends State<LoginScreen>
 
   bool checkData() {
     if (_emailTextEditingController.text.isNotEmpty &&
-        _passwordTextEditingController.text.isNotEmpty &&
+        _passwordTextEditingController.text.isNotEmpty ||
         _emailTextEditingController2.text.isNotEmpty) {
       setStateErrorValue();
       return true;
@@ -312,7 +313,9 @@ class _LoginScreenState extends State<LoginScreen>
     });
   }
 
-  void login() {}
+  void login() {
+    Navigator.of(context).pushNamed(ProfileScreen.screenRoute);
+  }
 
   void signup() {
     Navigator.of(context).pushNamed(CreatePasswordScreen.screenRoute);
