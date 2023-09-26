@@ -14,6 +14,8 @@ class AppTextField extends StatelessWidget {
     this.errorText,
     required this.keyboard,
     this.constraints=0,
+    this.backGroundSuffixColor=Colors.transparent,
+    this.suffixColor=Colors.white30,
 
     super.key,
   });
@@ -30,6 +32,8 @@ class AppTextField extends StatelessWidget {
   final String? errorText;
   final TextInputType keyboard;
   final double constraints;
+  final Color backGroundSuffixColor;
+  final Color suffixColor;
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +56,12 @@ class AppTextField extends StatelessWidget {
         textInputAction: TextInputAction.go,
         decoration: InputDecoration(
           errorText:errorText ,
-          suffixIcon: IconButton(
-            onPressed: onPress,
-            icon: Icon(suffix),
+          suffixIcon: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15 ),color:backGroundSuffixColor ),
+            child: IconButton(
+              onPressed: onPress,
+              icon: Icon(suffix), disabledColor: suffixColor,
+            ),
           ),
           constraints:  BoxConstraints(maxHeight: constraints, maxWidth: 315),
           contentPadding: const EdgeInsetsDirectional.only(

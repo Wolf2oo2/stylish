@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+
+class ProductCard extends StatefulWidget {
+  ProductCard({
     this.image,
     required this.productTitle,
     required this.price,
+    this.press = false,
 
     super.key,
   });
-final String? image;
-final String productTitle;
-final double price;
+
+  final String? image;
+  final String productTitle;
+  final double price;
+  bool press;
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,31 +34,44 @@ final double price;
         ],
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(start: 8, ),
+        padding: const EdgeInsetsDirectional.only(start: 8,),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 90,//decoration: BoxDecoration(image: DecorationImage(image: image)),
+              height: 90, //decoration: BoxDecoration(image: DecorationImage(image: image)),
             ),
             SizedBox(height: 30,
               child: Row(
                 children: [
                   Text(
-                    '\$$price',
+                    '\$${widget.price}',
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold),
-                  ),const Spacer(),
+                  ), const Spacer(),
                   IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite),
+                    onPressed: () {
+                      if (widget.press = true) {
+                        setState(() {
+                          widget.press = true;
+                        });
+
+
+
+                      }
+                    },
+                    icon: widget.press ? const Icon(
+                        Icons.favorite, color: Colors.red) : const Icon(
+                        Icons.favorite_border_outlined),
                     iconSize: 20,
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                   )
                 ],
               ),
             ),
             Text(
-            productTitle,
+              widget.productTitle,
               style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
             ),
           ],
