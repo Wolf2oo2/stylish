@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stylish/home/home_screen.dart';
 import 'package:stylish/modules/auth/create_password_screen.dart';
 import 'package:stylish/modules/catogries/search_screen.dart';
 import 'package:stylish/widgets/app_text_field.dart';
@@ -347,7 +348,7 @@ class _LoginScreenState extends State<LoginScreen>
 
 
   void login() {
-    Navigator.of(context).pushNamed(SearchScreen.screenRoute);
+    Navigator.of(context).pushNamed(HomeScreen.screenRoute);
   }
 
   void signup() {

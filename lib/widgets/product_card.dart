@@ -15,11 +15,13 @@ class ProductCard extends StatefulWidget {
   final double price;
   bool press;
 
+
   @override
   State<ProductCard> createState() => _ProductCardState();
 }
 
 class _ProductCardState extends State<ProductCard> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,14 +53,8 @@ class _ProductCardState extends State<ProductCard> {
                   ), const Spacer(),
                   IconButton(
                     onPressed: () {
-                      if (widget.press = true) {
-                        setState(() {
-                          widget.press = true;
-                        });
 
 
-
-                      }
                     },
                     icon: widget.press ? const Icon(
                         Icons.favorite, color: Colors.red) : const Icon(
